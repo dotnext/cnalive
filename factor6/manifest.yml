@@ -1,0 +1,8 @@
+---
+applications:
+- name: factor6
+  memory: 128M
+  buildpack: python_buildpack
+  host: factor6
+  domain: local.pcfdev.io
+  command: python myapp.py

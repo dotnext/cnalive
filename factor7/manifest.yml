@@ -1,0 +1,10 @@
+---
+applications:
+- name: factor7
+  memory: 128M
+  buildpack: python_buildpack
+  host: factor7
+  domain: local.pcfdev.io
+  command: python myapp.py
+  services:
+  - redis-mcowger
