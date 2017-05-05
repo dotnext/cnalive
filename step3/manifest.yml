@@ -1,10 +1,8 @@
 ---
 applications:
-- name: factor7
+- name: step3
   memory: 128M
   buildpack: python_buildpack
-  host: factor7
+  host: step3
   domain: local.pcfdev.io
   command: python myapp.py
-  services:
-  - redis-mcowger

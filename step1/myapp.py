@@ -1,12 +1,7 @@
 from flask import Flask, url_for, redirect, render_template
-import os
-
-
-try:
-    filename = str(os.environ['FILENAME'])
-except KeyError:
-    filename = "counter.txt"
-
+##########################################################
+#  GitHub Repo dotnext/cnalive
+##########################################################
 app = Flask(__name__)
 
 def is_number(s):
@@ -20,7 +15,7 @@ def is_number(s):
 def default():
     counter = 0
     try:
-        fo = open(filename, "r")
+        fo = open("counter.txt", "r")
         counter = fo.readline()
         fo.close()
         if is_number(counter):
@@ -30,10 +25,10 @@ def default():
     except:
         print("No File Found, Starting new one")
 
-    fo = open(filename,'w')
+    fo = open('counter.txt','w')
     fo.write(str(counter))
     fo.close()
-    return render_template('index.html',title="Basic Title", counter=counter, filename=filename)
+    return render_template('index.html',title="Basic Title", counter=counter)
 
 if __name__ == "__main__":
     app.run()

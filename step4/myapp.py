@@ -5,11 +5,6 @@ import redis
 env = AppEnv()
 
 
-try:
-    filename = str(os.environ['FILENAME'])
-except KeyError:
-    filename = "counter.txt"
-
 app = Flask(__name__)
 
 def is_number(s):
@@ -21,6 +16,7 @@ def is_number(s):
 
 @app.route('/')
 def default():
+###################################################################
     redis_connection_info = env.services[0].credentials
 
     r = redis.StrictRedis(
@@ -34,6 +30,8 @@ def default():
     else:
         counter = int(counter) + 1
     r.set('counter',counter)
+
+################################################################
     return render_template('index.html',title="Basic Title", counter=counter, filename="redis")
 
 if __name__ == "__main__":

@@ -1,8 +1,10 @@
 ---
 applications:
-- name: factor6
+- name: step4
   memory: 128M
   buildpack: python_buildpack
-  host: factor6
+  host: step4
   domain: local.pcfdev.io
   command: python myapp.py
+  services:
+  - redis-mcowger
